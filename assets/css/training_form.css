@@ -123,6 +123,7 @@ button-bar:hover {
 td {
     width: 10%;
     font-size: small;
+    text-align: center;
 }
 
 th {
@@ -137,6 +138,13 @@ sidebar {
     position: fixed !important;
     z-index: 1;
     overflow: auto;
+}
+
+.step {
+  display: none;
+}
+.step.active {
+  display: block;
 }
 
 
@@ -181,6 +189,10 @@ sidebar {
 }
 
 @media (min-width:993px) {
+    table {
+      width: 70%;
+    }
+
     .content {
         max-width: 980px
     }
