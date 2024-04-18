@@ -33,4 +33,32 @@ function changeStep(btn) {
   index--;  
  }  
  steps[index].classList.add("active");  
-}  
+}
+
+function generateFields() {
+  var jumlahTim = document.getElementById('jumlahTim').value;
+  var container = document.getElementById('dynamicFieldsContainer');
+  container.innerHTML = ''; // Clear previous fields
+
+  for (var i = 0; i < jumlahTim; i++) {
+    let div1 = document.createElement("div");
+    div1.classList.add("form-control");
+
+    let div2 = document.createElement("div");
+    div2.classList.add("form-control");
+
+      var namaInput = document.createElement('input');
+      namaInput.type = 'text';
+      namaInput.placeholder = 'Nama Anggota Tim ' + (i+1);
+
+      var unitInput = document.createElement('input');
+      unitInput.type = 'text';
+      unitInput.placeholder = 'Unit Kerja ' + (i+1);
+
+      div1.appendChild(namaInput);
+      div2.appendChild(unitInput);
+      div1.appendChild(document.createElement('br')); // Line break
+      container.appendChild(div1);
+      container.appendChild(div2);
+  }
+}

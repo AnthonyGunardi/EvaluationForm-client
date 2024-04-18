@@ -118,9 +118,10 @@
 					</label>
 
 					<!-- Input Type Text -->
-					<input type="number" min="1" id="position" placeholder="Jumlah Tim Yang Bertugas" />
+					<input type="number" min="1" id="jumlahTim" placeholder="Jumlah Tim Yang Bertugas" />
 				</div>
         
+        <div id="dynamicFieldsContainer"></div>
 
 				<!-- Multi-line Text Input Control -->
 				<div class="button-loca">
@@ -128,7 +129,7 @@
 						<p style="color:#1b1b1b">Cancel</p>
 					</button>
 
-					<button class="next-btn" type="submit" value="submit">
+					<button class="next-btn123" type="submit" value="submit" onclick="generateFields()">
 						<p style="color:#f1f1f1">Next</p>
 					</button>
 				</div>
