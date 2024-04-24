@@ -1,23 +1,32 @@
-const nextBtn = document.querySelectorAll("form .next-btn");  
-const prevBtn = document.querySelectorAll("form .previous-btn");  
+let nextBtns = document.querySelectorAll("form .button-loca .next-btn");  
+let prevBtns = document.querySelectorAll("form .button-loca .previous-btn");  
 const form = document.querySelector("form"); 
-const teamCount = document.querySelector("form #jumlahTim"); 
+const teamCount = document.querySelector("form #team-count"); 
 
-teamCount.addEventListener("input", () => {  
-  generateFields() 
+teamCount.addEventListener("input", () => { 
+  if (parseInt(teamCount.value) < 1 || teamCount.value == "") {
+    const steps = Array.from(document.querySelectorAll("form .step"));
+    for (let i = 1; i < steps.length; i++) {
+      steps[i].remove();
+    }
+  }
+  generateFields()
+  nextBtns = document.querySelectorAll("form .button-loca .next-btn"); 
+  prevBtns = document.querySelectorAll("form .button-loca .previous-btn"); 
+  console.log(nextBtns)
+  nextBtns.forEach((button) => {  
+    button.addEventListener("click", (e) => {
+     e.preventDefault();  
+     changeStep("next");  
+    });  
+   });
+   prevBtns.forEach((button) => {  
+    button.addEventListener("click", (e) => {
+     e.preventDefault();  
+     changeStep("prev");  
+    });  
+   });
  }); 
-
-nextBtn.forEach((button) => {  
- button.addEventListener("click", () => {  
-  changeStep("next");  
- });  
-});
-
-prevBtn.forEach((button) => {  
- button.addEventListener("click", () => {  
-  changeStep("prev");  
- });  
-});
 
 form.addEventListener("submit", (e) => {  
  e.preventDefault();  
@@ -31,7 +40,8 @@ form.addEventListener("submit", (e) => {
 });
 
 function changeStep(btn) {
-  const steps = Array.from(document.querySelectorAll("form .step"));   
+  const steps = Array.from(document.querySelectorAll("form .step"));  
+  console.log(steps, "ini steps") 
   let index = 0;  
   const active = document.querySelector(".active");  
   index = steps.indexOf(active);  
@@ -40,16 +50,19 @@ function changeStep(btn) {
     index++;  
   } else if (btn === "prev") {  
     index--;  
-  }  
-  steps[index].classList.add("active"); 
-  console.log(steps) 
+  }
+  console.log(steps[index])
+  steps[index].classList.add("active");
+  window.scrollTo(0, 0);
 }
 
 function generateFields() {
-  let jumlahTim = document.getElementById('jumlahTim').value;
+  let teamCount = document.getElementById('team-count').value;
   let container = document.querySelector('.dynamicFieldsContainer');
+  console.log(teamCount, "ini jumlahTim")
 
-  for (let i = 1; i <= jumlahTim; i++) {
+  for (let i = 1; i <= teamCount; i++) {
+    // div 'Step'
     let stepDiv = document.createElement("div");
     stepDiv.classList.add("step", `step-${i+1}`);
 
@@ -58,9 +71,11 @@ function generateFields() {
     let nameLabel = document.createElement('label');
     let nameInput = document.createElement('input');
     nameDiv.classList.add("form-control");
-    nameLabel.innerHTML = 'Nama Anggota Tim ' + (i+1);
+    nameLabel.innerHTML = 'Nama Anggota Tim ' + (i);
     nameInput.type = 'text';
-    nameInput.placeholder = 'Nama Anggota Tim ' + (i+1);
+    nameInput.id = `employee-name-${i}`;
+    nameInput.name = 'employee-name';
+    nameInput.placeholder = 'Nama Anggota Tim ' + (i);
     nameDiv.appendChild(nameLabel);
     nameDiv.appendChild(nameInput);
     nameDiv.appendChild(document.createElement('br'));
@@ -74,6 +89,8 @@ function generateFields() {
     unitDiv.classList.add("form-control");
     unitLabel.innerHTML = 'Unit Kerja';
     unitInput.type = 'text';
+    unitInput.id = `unit-name-${i}`;
+    unitInput.name = 'unit-name';
     unitInput.placeholder = 'Unit Kerja';
     unitDiv.appendChild(unitLabel);
     unitDiv.appendChild(unitInput);
@@ -88,6 +105,8 @@ function generateFields() {
     jobDiv.classList.add("form-control");
     jobLabel.innerHTML = 'Jobdesk Saat Project';
     jobInput.type = 'text';
+    jobInput.id = `jobdesc-${i}`;
+    jobInput.name = 'jobdesc';
     jobInput.placeholder = 'Jobdesk Saat Project';
     jobDiv.appendChild(jobLabel);
     jobDiv.appendChild(jobInput);
@@ -676,5 +695,27 @@ function generateFields() {
     ketPelayananDiv.appendChild(document.createElement('br'));
     stepDiv.appendChild(ketPelayananDiv);
     container.appendChild(stepDiv);
+
+    // next & previous button
+    let buttonDiv = document.createElement("div");
+    buttonDiv.classList.add("button-loca");
+    const previousBtn = document.createElement('button');
+    previousBtn.className = 'previous-btn';
+    // previousBtn.type = 'cancel';
+    // previousBtn.value = 'cancel';
+    previousBtn.style.backgroundColor = '#ffffff';
+    previousBtn.innerHTML = '<p style="color:#1b1b1b">Cancel</p>';
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'next-btn';
+    // nextBtn.type = 'submit';
+    // nextBtn.value = 'submit';
+    nextBtn.innerHTML = '<p style="color:#f1f1f1">Next</p>';
+
+    buttonDiv.appendChild(previousBtn);
+    buttonDiv.appendChild(nextBtn);
+    stepDiv.appendChild(buttonDiv);
+    container.appendChild(stepDiv);
+
   }
 }

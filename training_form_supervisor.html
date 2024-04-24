@@ -88,407 +88,404 @@
 			<form id="form" class="dynamicFieldsContainer">
         <div class="step step-1 active">
 
-				<!-- Details -->
-				<div class="form-control">
-					<label for="employee-id" id="label-id">
-						1. Nama Project
-					</label>
+          <!-- Details -->
+          <div class="form-control">
+            <label for="project-name" id="project-name-label">
+              1. Nama Project
+            </label>
 
-					<!-- Input Type Text -->
-					<input type="text" id="employee-id" placeholder="Nama Project" required />
-				</div>
+            <!-- Input Type Text -->
+            <input type="text" id="project-name" placeholder="Nama Project"/>
+          </div>
 
-				<div class="form-control">
-					<label for="name" id="label-name">
-						2. Nama PIC
-					</label>
+          <div class="form-control">
+            <label for="pic-name" id="pic-name-label">
+              2. Nama PIC
+            </label>
 
-					<!-- Input Type Email-->
-					<input type="text" id="name" placeholder="Nama PIC" required />
-				</div>
+            <!-- Input Type Email-->
+            <input type="text" id="pic-name" placeholder="Nama PIC"/>
+          </div>
 
-        <div class="form-control">
-					<label for="start-date">3. Tanggal Pelaksanaan Project</label>
-					<input type="datetime-local" id="start-date" name="tanggal-project" required>
-				</div>
+          <div class="form-control">
+            <label for="start-date">3. Tanggal Pelaksanaan Project</label>
+            <input type="datetime-local" id="start-date" name="start-date">
+          </div>
 
-				<div class="form-control">
-					<label for="position" id="label-position">
-						4. Jumlah Tim Yang Bertugas
-					</label>
+          <div class="form-control">
+            <label for="team-count" id="team-count-label">
+              4. Jumlah Tim Yang Bertugas
+            </label>
 
-					<!-- Input Type Text -->
-					<input type="number" min="1" id="jumlahTim" placeholder="Jumlah Tim Yang Bertugas" />
-				</div>
+            <!-- Input Type Text -->
+            <input type="number" min="1" id="team-count" placeholder="Jumlah Tim Yang Bertugas" />
+          </div>
 
-				<!-- Multi-line Text Input Control -->
-				<div class="button-loca">
-					<button class="previous-btn" type="cancel" value="cancel" style="background-color: #ffffff;">
-						<p style="color:#1b1b1b">Cancel</p>
-					</button>
+          <!-- Multi-line Text Input Control -->
+          <div class="button-loca">
+            <button class="next-btn">
+              <p style="color:#f1f1f1">Next</p>
+            </button>
+          </div>
 
-					<button class="next-btn" type="submit" value="submit">
-						<p style="color:#f1f1f1">Next</p>
-					</button>
-				</div>
+        </div>
 
-      </div>
+        <div class="" style="display: none">
+          <!-- Details -->
+          <div class="form-control">
+            <label for="employee-id" id="label-id">
+              Nama Anggota Tim
+            </label>
 
-      <div class="" style="display: none">
-        <!-- Details -->
-				<div class="form-control">
-					<label for="employee-id" id="label-id">
-						Nama Anggota Tim
-					</label>
+            <!-- Input Type Text -->
+            <input type="text" id="employee-id" placeholder="Nama Anggota Tim"/>
+          </div>
 
-					<!-- Input Type Text -->
-					<input type="text" id="employee-id" placeholder="Nama Anggota Tim" required />
-				</div>
+          <div class="form-control">
+            <label for="name" id="label-name">
+              Unit Kerja
+            </label>
 
-				<div class="form-control">
-					<label for="name" id="label-name">
-						Unit Kerja
-					</label>
+            <!-- Input Type Email-->
+            <input type="text" id="name" placeholder="Unit Kerja"/>
+          </div>
 
-					<!-- Input Type Email-->
-					<input type="text" id="name" placeholder="Unit Kerja" required />
-				</div>
+          <div class="form-control">
+            <label for="position" id="label-position">
+              Jobdesk Saat Project
+            </label>
 
-				<div class="form-control">
-					<label for="position" id="label-position">
-						Jobdesk Saat Project
-					</label>
+            <!-- Input Type Text -->
+            <input type="text" id="position" placeholder="Jobdesk Saat Project" />
+          </div>
 
-					<!-- Input Type Text -->
-					<input type="text" id="position" placeholder="Jobdesk Saat Project" />
-				</div>
+          <div class="form-control">
+            <label>
+              Ketepatan Waktu<br>
+              1: Sering terlambat dalam memenuhi tenggat waktu.<br>
+              2: Kadang-kadang terlambat dalam menyelesaikan tugas.<br>
+              3: Pemenuhan tenggat waktu yang cukup konsisten.<br>
+              4: Selalu tepat waktu dalam menyelesaikan tugas.<br>
+              5: Mengungguli harapan, selalu lebih cepat dari tenggat waktu.<br>
+            </label>
+            <table>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <th id="empty"> </th>
+                <td id="poor">1</td>
+                <td id="fair">2</td>
+                <td id="average">3</td>
+                <td id="very good">4</td>
+                <td id="excellent">5</td>
+              </tr>
 
-				<div class="form-control">
-					<label>
-						Ketepatan Waktu<br>
-            1: Sering terlambat dalam memenuhi tenggat waktu.<br>
-            2: Kadang-kadang terlambat dalam menyelesaikan tugas.<br>
-            3: Pemenuhan tenggat waktu yang cukup konsisten.<br>
-            4: Selalu tepat waktu dalam menyelesaikan tugas.<br>
-            5: Mengungguli harapan, selalu lebih cepat dari tenggat waktu.<br>
-					</label>
-					<table>
-						<tr style="background-color: rgb(255, 255, 255);">
-							<th id="empty"> </th>
-							<td id="poor">1</td>
-							<td id="fair">2</td>
-							<td id="average">3</td>
-							<td id="very good">4</td>
-							<td id="excellent">5</td>
-						</tr>
-
-						<tr ng-repeat="item in items">
-							<th id="title"><label>Ketepatan Waktu</label></th>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="poor"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="fair"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="average"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
-										ng-model="model[item]" /> </label></td>
-						</tr>
-					</table>
-				</div>
+              <tr ng-repeat="item in items">
+                <th id="title"><label>Ketepatan Waktu</label></th>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                      ng-model="model[item]" /> </label></td>
+              </tr>
+            </table>
+          </div>
 
 
-				<div class="form-control">
-					<label for="apply" id="label-apply">
-						Keterangan Penilaian: Ketepatan Waktu
-					</label>
+          <div class="form-control">
+            <label for="apply" id="label-apply">
+              Keterangan Penilaian: Ketepatan Waktu
+            </label>
 
-					<!-- Input Type Text -->
-					<input type="text" id="apply" placeholder="Berikan alasan untuk penilaian ketepatan waktu" />
-				</div>
+            <!-- Input Type Text -->
+            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian ketepatan waktu" />
+          </div>
 
-				<div class="form-control">
-					<label>
-						Komunikasi Internal<br>
-            1: Komunikasi internal seringkali tidak jelas atau kurang efektif.<br>
-            2: Beberapa ketidakjelasan dalam komunikasi internal.<br>
-            3: Komunikasi internal yang cukup jelas dan efektif.<br>
-            4: Komunikasi internal sangat baik, minimal ketidakjelasan.<br>
-            5: Komunikasi internal luar biasa, memastikan semua anggota panitia terinformasi dengan baik.<br>
-					</label>
-					<table>
-						<tr style="background-color: rgb(255, 255, 255);">
-							<th id="empty"> </th>
-							<td id="poor">1</td>
-							<td id="fair">2</td>
-							<td id="average">3</td>
-							<td id="very good">4</td>
-							<td id="excellent">5</td>
-						</tr>
+          <div class="form-control">
+            <label>
+              Komunikasi Internal<br>
+              1: Komunikasi internal seringkali tidak jelas atau kurang efektif.<br>
+              2: Beberapa ketidakjelasan dalam komunikasi internal.<br>
+              3: Komunikasi internal yang cukup jelas dan efektif.<br>
+              4: Komunikasi internal sangat baik, minimal ketidakjelasan.<br>
+              5: Komunikasi internal luar biasa, memastikan semua anggota panitia terinformasi dengan baik.<br>
+            </label>
+            <table>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <th id="empty"> </th>
+                <td id="poor">1</td>
+                <td id="fair">2</td>
+                <td id="average">3</td>
+                <td id="very good">4</td>
+                <td id="excellent">5</td>
+              </tr>
 
-						<tr ng-repeat="item in items">
-							<th id="title"><label>Komunikasi Internal</label></th>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="poor"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="fair"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="average"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
-										ng-model="model[item]" /> </label></td>
-						</tr>
-					</table>
-				</div>
-
-
-				<div class="form-control">
-					<label for="apply" id="label-apply">
-						Keterangan Penilaian: Komunikasi Internal
-					</label>
-
-					<!-- Input Type Text -->
-					<input type="text" id="apply" placeholder="Berikan alasan untuk penilaian komunikasi internal" />
-				</div>
-
-        <div class="form-control">
-					<label>
-						Kerjasama Tim<br>
-            1: Tidak ada kerjasama, banyak konflik di antara anggota panitia.<br>
-            2: Kerjasama terbatas, perlu ditingkatkan.<br>
-            3: Kerjasama cukup, tetapi masih ada beberapa ketidakcocokan.<br>
-            4: Kerjasama baik, anggota panitia mendukung satu sama lain.<br>
-            5: Kerjasama sangat baik, panitia bekerja bersama harmonis.<br>
-					</label>
-					<table>
-						<tr style="background-color: rgb(255, 255, 255);">
-							<th id="empty"> </th>
-							<td id="poor">1</td>
-							<td id="fair">2</td>
-							<td id="average">3</td>
-							<td id="very good">4</td>
-							<td id="excellent">5</td>
-						</tr>
-
-						<tr ng-repeat="item in items">
-							<th id="title"><label>Kerjasama Tim</label></th>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="poor"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="fair"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="average"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
-										ng-model="model[item]" /> </label></td>
-						</tr>
-					</table>
-				</div>
+              <tr ng-repeat="item in items">
+                <th id="title"><label>Komunikasi Internal</label></th>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                      ng-model="model[item]" /> </label></td>
+              </tr>
+            </table>
+          </div>
 
 
-				<div class="form-control">
-					<label for="apply" id="label-apply">
-						Keterangan Penilaian: Kerjasama Tim
-					</label>
+          <div class="form-control">
+            <label for="apply" id="label-apply">
+              Keterangan Penilaian: Komunikasi Internal
+            </label>
 
-					<!-- Input Type Text -->
-					<input type="text" id="apply" placeholder="Berikan alasan untuk penilaian kerjasama tim" />
-				</div>
+            <!-- Input Type Text -->
+            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian komunikasi internal" />
+          </div>
 
-        <div class="form-control">
-					<label>
-						Inisiatif<br>
-            1: Kurangnya inisiatif dalam mengambil tindakan atau solusi.<br>
-            2: Inisiatif terbatas, perlu ditingkatkan.<br>
-            3: Memiliki inisiatif yang cukup untuk menyelesaikan tugas.<br>
-            4: Memperlihatkan inisiatif yang baik, mampu melihat dan menyelesaikan masalah.<br>
-            5: Inisiatif yang luar biasa, proaktif dalam mengatasi kendala.<br>
-					</label>
-					<table>
-						<tr style="background-color: rgb(255, 255, 255);">
-							<th id="empty"> </th>
-							<td id="poor">1</td>
-							<td id="fair">2</td>
-							<td id="average">3</td>
-							<td id="very good">4</td>
-							<td id="excellent">5</td>
-						</tr>
+          <div class="form-control">
+            <label>
+              Kerjasama Tim<br>
+              1: Tidak ada kerjasama, banyak konflik di antara anggota panitia.<br>
+              2: Kerjasama terbatas, perlu ditingkatkan.<br>
+              3: Kerjasama cukup, tetapi masih ada beberapa ketidakcocokan.<br>
+              4: Kerjasama baik, anggota panitia mendukung satu sama lain.<br>
+              5: Kerjasama sangat baik, panitia bekerja bersama harmonis.<br>
+            </label>
+            <table>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <th id="empty"> </th>
+                <td id="poor">1</td>
+                <td id="fair">2</td>
+                <td id="average">3</td>
+                <td id="very good">4</td>
+                <td id="excellent">5</td>
+              </tr>
 
-						<tr ng-repeat="item in items">
-							<th id="title"><label>Inisiatif</label></th>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="poor"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="fair"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="average"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
-										ng-model="model[item]" /> </label></td>
-						</tr>
-					</table>
-				</div>
-
-
-				<div class="form-control">
-					<label for="apply" id="label-apply">
-						Keterangan Penilaian: Inisiatif
-					</label>
-
-					<!-- Input Type Text -->
-					<input type="text" id="apply" placeholder="Berikan alasan untuk penilaian inisiatif" />
-				</div>
-
-        <div class="form-control">
-					<label>
-						Kreativitas Dalam Pemecahan Masalah<br>
-            1: Kurangnya kreativitas dalam mencari solusi masalah.<br>
-            2: Kreativitas terbatas, perlu ditingkatkan.<br>
-            3: Memiliki kreativitas yang cukup dalam menemukan solusi.<br>
-            4: Kreativitas yang baik, menciptakan solusi yang efektif.<br>
-            5: Kreativitas luar biasa, mampu menemukan solusi inovatif.<br>
-					</label>
-					<table>
-						<tr style="background-color: rgb(255, 255, 255);">
-							<th id="empty"> </th>
-							<td id="poor">1</td>
-							<td id="fair">2</td>
-							<td id="average">3</td>
-							<td id="very good">4</td>
-							<td id="excellent">5</td>
-						</tr>
-
-						<tr ng-repeat="item in items">
-							<th id="title"><label>Kreativitas Dalam Pemecahan Masalah</label></th>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="poor"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="fair"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="average"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
-										ng-model="model[item]" /> </label></td>
-						</tr>
-					</table>
-				</div>
+              <tr ng-repeat="item in items">
+                <th id="title"><label>Kerjasama Tim</label></th>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                      ng-model="model[item]" /> </label></td>
+              </tr>
+            </table>
+          </div>
 
 
-				<div class="form-control">
-					<label for="apply" id="label-apply">
-						Keterangan Penilaian: Kreativitas Dalam Pemecahan Masalah
-					</label>
+          <div class="form-control">
+            <label for="apply" id="label-apply">
+              Keterangan Penilaian: Kerjasama Tim
+            </label>
 
-					<!-- Input Type Text -->
-					<input type="text" id="apply" placeholder="Berikan alasan untuk penilaian kreativitas" />
-				</div>
+            <!-- Input Type Text -->
+            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian kerjasama tim" />
+          </div>
 
-        <div class="form-control">
-					<label>
-						Manajemen Konflik<br>
-            1: Tidak dapat mengelola konflik, berdampak negatif pada kerjasama tim.<br>
-            2: Kemampuan manajemen konflik perlu perbaikan.<br>
-            3: Mampu mengelola konflik, tetapi masih ada pergeseran.<br>
-            4: Manajemen konflik yang baik, dampaknya minim pada produktivitas.<br>
-            5: Mampu menyelesaikan konflik dengan baik, memelihara harmoni.<br>
-					</label>
-					<table>
-						<tr style="background-color: rgb(255, 255, 255);">
-							<th id="empty"> </th>
-							<td id="poor">1</td>
-							<td id="fair">2</td>
-							<td id="average">3</td>
-							<td id="very good">4</td>
-							<td id="excellent">5</td>
-						</tr>
+          <div class="form-control">
+            <label>
+              Inisiatif<br>
+              1: Kurangnya inisiatif dalam mengambil tindakan atau solusi.<br>
+              2: Inisiatif terbatas, perlu ditingkatkan.<br>
+              3: Memiliki inisiatif yang cukup untuk menyelesaikan tugas.<br>
+              4: Memperlihatkan inisiatif yang baik, mampu melihat dan menyelesaikan masalah.<br>
+              5: Inisiatif yang luar biasa, proaktif dalam mengatasi kendala.<br>
+            </label>
+            <table>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <th id="empty"> </th>
+                <td id="poor">1</td>
+                <td id="fair">2</td>
+                <td id="average">3</td>
+                <td id="very good">4</td>
+                <td id="excellent">5</td>
+              </tr>
 
-						<tr ng-repeat="item in items">
-							<th id="title"><label>Manajemen Konflik</label></th>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="poor"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="fair"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="average"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
-										ng-model="model[item]" /> </label></td>
-						</tr>
-					</table>
-				</div>
-
-
-				<div class="form-control">
-					<label for="apply" id="label-apply">
-						Keterangan Penilaian: Manajemen Konflik
-					</label>
-
-					<!-- Input Type Text -->
-					<input type="text" id="apply" placeholder="Berikan alasan untuk penilaian manajemen konflik" />
-				</div>
-
-        <div class="form-control">
-					<label>
-						Pelayanan Pelanggan<br>
-            1: Pelayanan pelanggan sangat buruk, seringkali tidak responsif.<br>
-            2: Pelayanan pelanggan kurang baik, perlu peningkatan responsivitas.<br>
-            3: Pelayanan pelanggan cukup, namun masih ada ruang untuk perbaikan.<br>
-            4: Pelayanan pelanggan baik, responsif terhadap kebutuhan peserta atau klien.<br>
-            5: Pelayanan pelanggan sangat baik, selalu memprioritaskan kepuasan peserta atau klien.<br>
-					</label>
-					<table>
-						<tr style="background-color: rgb(255, 255, 255);">
-							<th id="empty"> </th>
-							<td id="poor">1</td>
-							<td id="fair">2</td>
-							<td id="average">3</td>
-							<td id="very good">4</td>
-							<td id="excellent">5</td>
-						</tr>
-
-						<tr ng-repeat="item in items">
-							<th id="title"><label>Pelayanan Pelanggan</label></th>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="poor"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="fair"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="average"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
-										ng-model="model[item]" /> </label></td>
-							<td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
-										ng-model="model[item]" /> </label></td>
-						</tr>
-					</table>
-				</div>
+              <tr ng-repeat="item in items">
+                <th id="title"><label>Inisiatif</label></th>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                      ng-model="model[item]" /> </label></td>
+              </tr>
+            </table>
+          </div>
 
 
-				<div class="form-control">
-					<label for="apply" id="label-apply">
-						Keterangan Penilaian: Pelayanan Pelanggan
-					</label>
+          <div class="form-control">
+            <label for="apply" id="label-apply">
+              Keterangan Penilaian: Inisiatif
+            </label>
 
-					<!-- Input Type Text -->
-					<input type="text" id="apply" placeholder="Berikan alasan untuk penilaian pelayanan pelanggan" />
-				</div>
-					
+            <!-- Input Type Text -->
+            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian inisiatif" />
+          </div>
 
-				<!-- Multi-line Text Input Control -->
-				<div class="button-loca">
-					<button class="previous-btn" type="cancel" value="cancel" style="background-color: #ffffff;">
-						<p style="color:#1b1b1b">Cancel</p>
-					</button>
+          <div class="form-control">
+            <label>
+              Kreativitas Dalam Pemecahan Masalah<br>
+              1: Kurangnya kreativitas dalam mencari solusi masalah.<br>
+              2: Kreativitas terbatas, perlu ditingkatkan.<br>
+              3: Memiliki kreativitas yang cukup dalam menemukan solusi.<br>
+              4: Kreativitas yang baik, menciptakan solusi yang efektif.<br>
+              5: Kreativitas luar biasa, mampu menemukan solusi inovatif.<br>
+            </label>
+            <table>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <th id="empty"> </th>
+                <td id="poor">1</td>
+                <td id="fair">2</td>
+                <td id="average">3</td>
+                <td id="very good">4</td>
+                <td id="excellent">5</td>
+              </tr>
 
-					<button class="next-btn" type="submit" value="submit">
-						<p style="color:#f1f1f1">Next</p>
-					</button>
-      </div>
+              <tr ng-repeat="item in items">
+                <th id="title"><label>Kreativitas Dalam Pemecahan Masalah</label></th>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                      ng-model="model[item]" /> </label></td>
+              </tr>
+            </table>
+          </div>
+
+
+          <div class="form-control">
+            <label for="apply" id="label-apply">
+              Keterangan Penilaian: Kreativitas Dalam Pemecahan Masalah
+            </label>
+
+            <!-- Input Type Text -->
+            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian kreativitas" />
+          </div>
+
+          <div class="form-control">
+            <label>
+              Manajemen Konflik<br>
+              1: Tidak dapat mengelola konflik, berdampak negatif pada kerjasama tim.<br>
+              2: Kemampuan manajemen konflik perlu perbaikan.<br>
+              3: Mampu mengelola konflik, tetapi masih ada pergeseran.<br>
+              4: Manajemen konflik yang baik, dampaknya minim pada produktivitas.<br>
+              5: Mampu menyelesaikan konflik dengan baik, memelihara harmoni.<br>
+            </label>
+            <table>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <th id="empty"> </th>
+                <td id="poor">1</td>
+                <td id="fair">2</td>
+                <td id="average">3</td>
+                <td id="very good">4</td>
+                <td id="excellent">5</td>
+              </tr>
+
+              <tr ng-repeat="item in items">
+                <th id="title"><label>Manajemen Konflik</label></th>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                      ng-model="model[item]" /> </label></td>
+              </tr>
+            </table>
+          </div>
+
+
+          <div class="form-control">
+            <label for="apply" id="label-apply">
+              Keterangan Penilaian: Manajemen Konflik
+            </label>
+
+            <!-- Input Type Text -->
+            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian manajemen konflik" />
+          </div>
+
+          <div class="form-control">
+            <label>
+              Pelayanan Pelanggan<br>
+              1: Pelayanan pelanggan sangat buruk, seringkali tidak responsif.<br>
+              2: Pelayanan pelanggan kurang baik, perlu peningkatan responsivitas.<br>
+              3: Pelayanan pelanggan cukup, namun masih ada ruang untuk perbaikan.<br>
+              4: Pelayanan pelanggan baik, responsif terhadap kebutuhan peserta atau klien.<br>
+              5: Pelayanan pelanggan sangat baik, selalu memprioritaskan kepuasan peserta atau klien.<br>
+            </label>
+            <table>
+              <tr style="background-color: rgb(255, 255, 255);">
+                <th id="empty"> </th>
+                <td id="poor">1</td>
+                <td id="fair">2</td>
+                <td id="average">3</td>
+                <td id="very good">4</td>
+                <td id="excellent">5</td>
+              </tr>
+
+              <tr ng-repeat="item in items">
+                <th id="title"><label>Pelayanan Pelanggan</label></th>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                      ng-model="model[item]" /> </label></td>
+                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                      ng-model="model[item]" /> </label></td>
+              </tr>
+            </table>
+          </div>
+
+
+          <div class="form-control">
+            <label for="apply" id="label-apply">
+              Keterangan Penilaian: Pelayanan Pelanggan
+            </label>
+
+            <!-- Input Type Text -->
+            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian pelayanan pelanggan" />
+          </div>
+            
+
+          <!-- Multi-line Text Input Control -->
+          <!-- <div class="button-loca">
+            <button class="previous-btn" type="cancel" value="cancel" style="background-color: #ffffff;">
+              <p style="color:#1b1b1b">Cancel</p>
+            </button>
+
+            <button class="next-btn" type="submit" value="submit">
+              <p style="color:#f1f1f1">Next</p>
+            </button>
+          </div> -->
+        </div>
 			</form>
 		</div>
 	</div>

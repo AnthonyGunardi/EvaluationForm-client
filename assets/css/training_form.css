@@ -72,6 +72,12 @@ select, textarea */
     width: 50%;
 }
 
+.form-control input::-webkit-outer-spin-button,
+.form-control input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Styling form-control Radio
 button and Checkbox */
 .form-control input[type="radio"],
