@@ -40,7 +40,6 @@ form.addEventListener("submit", (e) => {
  });  
  console.log(inputs);
  const formData = new FormData(form); 
- console.log('ini form -->', form )
  for (const [key, value] of formData) {
   console.log({value})
 }
@@ -170,7 +169,7 @@ function generateFields() {
     ketepatanThTitle.appendChild(ketepatanTableLabel);
     ketepatanRow.appendChild(ketepatanThTitle);
 
-    let values = ['poor', 'fair', 'average', 'very-good', 'excellent'];
+    let values = ['1', '2', '3', '4', '5'];
     values.forEach(function(value) {
         let td = document.createElement('td');
         let label = document.createElement('label');
@@ -255,7 +254,7 @@ function generateFields() {
     komunikasiThTitle.appendChild(komunikasiTableLabel);
     komunikasiRow.appendChild(komunikasiThTitle);
 
-    let komunikasiValues = ['poor', 'fair', 'average', 'very-good', 'excellent'];
+    let komunikasiValues = ['1', '2', '3', '4', '5'];
     komunikasiValues.forEach(function(value) {
         let td = document.createElement('td');
         let label = document.createElement('label');
@@ -339,7 +338,7 @@ function generateFields() {
     kerjasamaThTitle.appendChild(kerjasamaTableLabel);
     kerjasamaRow.appendChild(kerjasamaThTitle);
 
-    let kerjasamaValues = ['poor', 'fair', 'average', 'very-good', 'excellent'];
+    let kerjasamaValues = ['1', '2', '3', '4', '5'];
     kerjasamaValues.forEach(function(value) {
         let td = document.createElement('td');
         let label = document.createElement('label');
@@ -423,7 +422,7 @@ function generateFields() {
     inisiatifThTitle.appendChild(inisiatifTableLabel);
     inisiatifRow.appendChild(inisiatifThTitle);
 
-    let inisiatifValues = ['poor', 'fair', 'average', 'very-good', 'excellent'];
+    let inisiatifValues = ['1', '2', '3', '4', '5'];
     inisiatifValues.forEach(function(value) {
         let td = document.createElement('td');
         let label = document.createElement('label');
@@ -507,7 +506,7 @@ function generateFields() {
     kreativitasThTitle.appendChild(kreativitasTableLabel);
     kreativitasRow.appendChild(kreativitasThTitle);
 
-    let kreativitasValues = ['poor', 'fair', 'average', 'very-good', 'excellent'];
+    let kreativitasValues = ['1', '2', '3', '4', '5'];
     kreativitasValues.forEach(function(value) {
         let td = document.createElement('td');
         let label = document.createElement('label');
@@ -591,7 +590,7 @@ function generateFields() {
     konflikThTitle.appendChild(konflikTableLabel);
     konflikRow.appendChild(konflikThTitle);
 
-    let konflikValues = ['poor', 'fair', 'average', 'very-good', 'excellent'];
+    let konflikValues = ['1', '2', '3', '4', '5'];
     konflikValues.forEach(function(value) {
         let td = document.createElement('td');
         let label = document.createElement('label');
@@ -675,7 +674,7 @@ function generateFields() {
     pelayananThTitle.appendChild(pelayananTableLabel);
     pelayananRow.appendChild(pelayananThTitle);
 
-    let pelayananValues = ['poor', 'fair', 'average', 'very-good', 'excellent'];
+    let pelayananValues = ['1', '2', '3', '4', '5'];
     pelayananValues.forEach(function(value) {
         let td = document.createElement('td');
         let label = document.createElement('label');
