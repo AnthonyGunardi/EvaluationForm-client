@@ -31,11 +31,19 @@ teamCount.addEventListener("input", () => {
 form.addEventListener("submit", (e) => {  
  e.preventDefault();  
  const inputs = [];  
- form.querySelectorAll("input").forEach((input) => {  
+ form.querySelectorAll("input").forEach((input) => {
+  if (input.type === "radio" && !input.checked) {
+    return; // Skip unchecked radio inputs
+  };
   const { name, value } = input;  
   inputs.push({ name, value });  
  });  
- console.log(inputs);  
+ console.log(inputs);
+ const formData = new FormData(form); 
+ console.log('ini form -->', form )
+ for (const [key, value] of formData) {
+  console.log({value})
+}
  form.reset();  
 });
 
@@ -59,7 +67,6 @@ function changeStep(btn) {
 function generateFields() {
   let teamCount = document.getElementById('team-count').value;
   let container = document.querySelector('.dynamicFieldsContainer');
-  console.log(teamCount, "ini jumlahTim")
 
   for (let i = 1; i <= teamCount; i++) {
     // div 'Step'
@@ -74,7 +81,7 @@ function generateFields() {
     nameLabel.innerHTML = 'Nama Anggota Tim ' + (i);
     nameInput.type = 'text';
     nameInput.id = `employee-name-${i}`;
-    nameInput.name = 'employee-name';
+    nameInput.name = `employee-name-${i}`;
     nameInput.placeholder = 'Nama Anggota Tim ' + (i);
     nameDiv.appendChild(nameLabel);
     nameDiv.appendChild(nameInput);
@@ -90,7 +97,7 @@ function generateFields() {
     unitLabel.innerHTML = 'Unit Kerja';
     unitInput.type = 'text';
     unitInput.id = `unit-name-${i}`;
-    unitInput.name = 'unit-name';
+    unitInput.name = `unit-name-${i}`;
     unitInput.placeholder = 'Unit Kerja';
     unitDiv.appendChild(unitLabel);
     unitDiv.appendChild(unitInput);
@@ -106,7 +113,7 @@ function generateFields() {
     jobLabel.innerHTML = 'Jobdesk Saat Project';
     jobInput.type = 'text';
     jobInput.id = `jobdesc-${i}`;
-    jobInput.name = 'jobdesc';
+    jobInput.name = `jobdesc-${i}1`;
     jobInput.placeholder = 'Jobdesk Saat Project';
     jobDiv.appendChild(jobLabel);
     jobDiv.appendChild(jobInput);
@@ -169,7 +176,7 @@ function generateFields() {
         let label = document.createElement('label');
         let input = document.createElement('input');
         input.type = 'radio';
-        input.name = '16_option-{{$index}}';
+        input.name = `ketepatan-waktu-${i}`;
         input.value = value;
         input.setAttribute('ng-model', 'model[item]');
         label.appendChild(input);
@@ -190,6 +197,7 @@ function generateFields() {
     ketKetepatanDiv.classList.add("form-control");
     ketKetepatanLabel.innerHTML = 'Keterangan Penilaian: Ketepatan Waktu';
     ketKetepatanInput.type = 'text';
+    ketKetepatanInput.name = `ket-ketepatan-waktu-${i}`;
     ketKetepatanInput.placeholder = 'Berikan alasan untuk penilaian ketepatan waktu';
     ketKetepatanDiv.appendChild(ketKetepatanLabel);
     ketKetepatanDiv.appendChild(ketKetepatanInput);
@@ -253,7 +261,7 @@ function generateFields() {
         let label = document.createElement('label');
         let input = document.createElement('input');
         input.type = 'radio';
-        input.name = '16_option-{{$index}}';
+        input.name = `komunikasi-internal-${i}`;
         input.value = value;
         input.setAttribute('ng-model', 'model[item]');
         label.appendChild(input);
@@ -274,6 +282,7 @@ function generateFields() {
     ketKomunikasiDiv.classList.add("form-control");
     ketKomunikasiLabel.innerHTML = 'Keterangan Penilaian: Komunikasi Internal';
     ketKomunikasiInput.type = 'text';
+    ketKomunikasiInput.name = `ket-komunikasi-internal-${i}`;
     ketKomunikasiInput.placeholder = 'Berikan alasan untuk penilaian komunikasi internal';
     ketKomunikasiDiv.appendChild(ketKomunikasiLabel);
     ketKomunikasiDiv.appendChild(ketKomunikasiInput);
@@ -336,7 +345,7 @@ function generateFields() {
         let label = document.createElement('label');
         let input = document.createElement('input');
         input.type = 'radio';
-        input.name = '16_option-{{$index}}';
+        input.name = `kerjasama-tim-${i}`;
         input.value = value;
         input.setAttribute('ng-model', 'model[item]');
         label.appendChild(input);
@@ -357,6 +366,7 @@ function generateFields() {
     ketKerjasamaDiv.classList.add("form-control");
     ketKerjasamaLabel.innerHTML = 'Keterangan Penilaian: Kerjasama Tim';
     ketKerjasamaInput.type = 'text';
+    ketKerjasamaInput.name = `ket-kerjasama-tim-${i}`;
     ketKerjasamaInput.placeholder = 'Berikan alasan untuk penilaian kerjasama tim';
     ketKerjasamaDiv.appendChild(ketKerjasamaLabel);
     ketKerjasamaDiv.appendChild(ketKerjasamaInput);
@@ -419,7 +429,7 @@ function generateFields() {
         let label = document.createElement('label');
         let input = document.createElement('input');
         input.type = 'radio';
-        input.name = '16_option-{{$index}}';
+        input.name = `inisiatif-${i}`;
         input.value = value;
         input.setAttribute('ng-model', 'model[item]');
         label.appendChild(input);
@@ -440,6 +450,7 @@ function generateFields() {
     ketInisiatifDiv.classList.add("form-control");
     ketInisiatifLabel.innerHTML = 'Keterangan Penilaian: Inisiatif';
     ketInisiatifInput.type = 'text';
+    ketInisiatifInput.name = `ket-inisiatif-${i}`;
     ketInisiatifInput.placeholder = 'Berikan alasan untuk penilaian inisiatif';
     ketInisiatifDiv.appendChild(ketInisiatifLabel);
     ketInisiatifDiv.appendChild(ketInisiatifInput);
@@ -502,7 +513,7 @@ function generateFields() {
         let label = document.createElement('label');
         let input = document.createElement('input');
         input.type = 'radio';
-        input.name = '16_option-{{$index}}';
+        input.name = `kreativitas-${i}`;
         input.value = value;
         input.setAttribute('ng-model', 'model[item]');
         label.appendChild(input);
@@ -523,6 +534,7 @@ function generateFields() {
     ketKreativitasDiv.classList.add("form-control");
     ketKreativitasLabel.innerHTML = 'Keterangan Penilaian: Kreativitas Dalam Pemecahan Masalah';
     ketKreativitasInput.type = 'text';
+    ketKreativitasInput.name = `ket-kreativitas-${i}`;
     ketKreativitasInput.placeholder = 'Berikan alasan untuk penilaian kreativitas';
     ketKreativitasDiv.appendChild(ketKreativitasLabel);
     ketKreativitasDiv.appendChild(ketKreativitasInput);
@@ -585,7 +597,7 @@ function generateFields() {
         let label = document.createElement('label');
         let input = document.createElement('input');
         input.type = 'radio';
-        input.name = '16_option-{{$index}}';
+        input.name = `manajemen-konflik-${i}`;
         input.value = value;
         input.setAttribute('ng-model', 'model[item]');
         label.appendChild(input);
@@ -606,7 +618,8 @@ function generateFields() {
     ketKonflikDiv.classList.add("form-control");
     ketKonflikLabel.innerHTML = 'Keterangan Penilaian: Manajemen Konflik';
     ketKonflikInput.type = 'text';
-    ketKonflikInput.placeholder = 'Berikan alasan untuk penilaian pelayanan pelanggan';
+    ketKonflikInput.name = `ket-man-konflik-${i}`
+    ketKonflikInput.placeholder = 'Berikan alasan untuk penilaian manajemen konflik';
     ketKonflikDiv.appendChild(ketKonflikLabel);
     ketKonflikDiv.appendChild(ketKonflikInput);
     ketKonflikDiv.appendChild(document.createElement('br'));
@@ -668,7 +681,7 @@ function generateFields() {
         let label = document.createElement('label');
         let input = document.createElement('input');
         input.type = 'radio';
-        input.name = '16_option-{{$index}}';
+        input.name = `pelayanan-pelanggan-${i}`;
         input.value = value;
         input.setAttribute('ng-model', 'model[item]');
         label.appendChild(input);
@@ -689,6 +702,7 @@ function generateFields() {
     ketPelayananDiv.classList.add("form-control");
     ketPelayananLabel.innerHTML = 'Keterangan Penilaian: Pelayanan Pelanggan';
     ketPelayananInput.type = 'text';
+    ketPelayananInput.name = `ket-pelayanan-pelanggan-${i}`
     ketPelayananInput.placeholder = 'Berikan alasan untuk penilaian pelayanan pelanggan';
     ketPelayananDiv.appendChild(ketPelayananLabel);
     ketPelayananDiv.appendChild(ketPelayananInput);
@@ -697,25 +711,39 @@ function generateFields() {
     container.appendChild(stepDiv);
 
     // next & previous button
-    let buttonDiv = document.createElement("div");
-    buttonDiv.classList.add("button-loca");
-    const previousBtn = document.createElement('button');
-    previousBtn.className = 'previous-btn';
-    // previousBtn.type = 'cancel';
-    // previousBtn.value = 'cancel';
-    previousBtn.style.backgroundColor = '#ffffff';
-    previousBtn.innerHTML = '<p style="color:#1b1b1b">Cancel</p>';
-
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'next-btn';
-    // nextBtn.type = 'submit';
-    // nextBtn.value = 'submit';
-    nextBtn.innerHTML = '<p style="color:#f1f1f1">Next</p>';
-
-    buttonDiv.appendChild(previousBtn);
-    buttonDiv.appendChild(nextBtn);
-    stepDiv.appendChild(buttonDiv);
-    container.appendChild(stepDiv);
-
+    if (i == teamCount) {
+      let buttonDiv = document.createElement("div");
+      buttonDiv.classList.add("button-loca");
+  
+      const submitBtn = document.createElement('button');
+      submitBtn.className = 'submit-btn';
+      submitBtn.type = 'submit';
+      submitBtn.value = 'submit';
+      submitBtn.innerHTML = '<p style="color:#f1f1f1">Submit</p>';
+  
+      buttonDiv.appendChild(submitBtn);
+      stepDiv.appendChild(buttonDiv);
+      container.appendChild(stepDiv);
+    } else {
+      let buttonDiv = document.createElement("div");
+      buttonDiv.classList.add("button-loca");
+      const previousBtn = document.createElement('button');
+      previousBtn.className = 'previous-btn';
+      // previousBtn.type = 'cancel';
+      // previousBtn.value = 'cancel';
+      previousBtn.style.backgroundColor = '#ffffff';
+      previousBtn.innerHTML = '<p style="color:#1b1b1b">Cancel</p>';
+  
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'next-btn';
+      // nextBtn.type = 'submit';
+      // nextBtn.value = 'submit';
+      nextBtn.innerHTML = '<p style="color:#f1f1f1">Next</p>';
+  
+      buttonDiv.appendChild(previousBtn);
+      buttonDiv.appendChild(nextBtn);
+      stepDiv.appendChild(buttonDiv);
+      container.appendChild(stepDiv);
+    }
   }
 }
