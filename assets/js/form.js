@@ -1,5 +1,5 @@
 let nextBtns = document.querySelectorAll("form .button-loca .next-btn");  
-let prevBtns = document.querySelectorAll("form .button-loca .previous-btn");  
+let prevBtns = document.querySelectorAll("form .button-loca .previous-btn");
 const form = document.querySelector("form"); 
 const teamCount = document.querySelector("form #team-count"); 
 
@@ -29,21 +29,32 @@ teamCount.addEventListener("input", () => {
  }); 
 
 form.addEventListener("submit", (e) => {  
- e.preventDefault();  
- const inputs = [];  
- form.querySelectorAll("input").forEach((input) => {
-  if (input.type === "radio" && !input.checked) {
-    return; // Skip unchecked radio inputs
-  };
-  const { name, value } = input;  
-  inputs.push({ name, value });  
- });  
- console.log(inputs);
- const formData = new FormData(form); 
- for (const [key, value] of formData) {
-  console.log({value})
-}
- form.reset();  
+  e.preventDefault();  
+  const submitButton = document.querySelector(".submit-btn");
+  const inputs = [];  
+  form.querySelectorAll("input").forEach((input) => {
+    if (input.type === "radio" && !input.checked) {
+      return; // Skip unchecked radio inputs
+    };
+    const { name, value } = input;  
+    inputs.push({ name, value });  
+  });  
+  console.log(inputs);
+  const formData = new FormData(form); 
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzgA7RjxsC_6_VbywyedD0YW_vLlFi8MTvtZk5ighunv8xd1Rc5ri5K3xt8ZNLDVY9kfw/exec';
+  fetch(scriptURL, { method: 'POST', body: formData})
+  .then(response => {
+    console.log('Success send data to googlesheet', response);
+    for (const [key, value] of formData) {
+      console.log({key, value})
+    }
+    console.log(formData, '<-- ini form data')
+    form.reset();
+  })
+  .catch(error => {
+    console.error('Error!', error.message)
+  }) 
 });
 
 function changeStep(btn) {
@@ -75,13 +86,18 @@ function generateFields() {
     // div 'Nama Anggota Tim'
     let nameDiv = document.createElement("div");
     let nameLabel = document.createElement('label');
-    let nameInput = document.createElement('input');
+    let nameInput = document.createElement('select');
     nameDiv.classList.add("form-control");
     nameLabel.innerHTML = 'Nama Anggota Tim ' + (i);
-    nameInput.type = 'text';
     nameInput.id = `employee-name-${i}`;
     nameInput.name = `employee-name-${i}`;
-    nameInput.placeholder = 'Nama Anggota Tim ' + (i);
+    let nameOptions = ["Aditya Mahendra", "Faustina Marietta"];
+    nameOptions.forEach(function(nameOption) {
+        let optionElement = document.createElement("option");
+        optionElement.setAttribute("value", nameOption);
+        optionElement.textContent = nameOption;
+        nameInput.appendChild(optionElement);
+    });
     nameDiv.appendChild(nameLabel);
     nameDiv.appendChild(nameInput);
     nameDiv.appendChild(document.createElement('br'));
@@ -112,7 +128,7 @@ function generateFields() {
     jobLabel.innerHTML = 'Jobdesk Saat Project';
     jobInput.type = 'text';
     jobInput.id = `jobdesc-${i}`;
-    jobInput.name = `jobdesc-${i}1`;
+    jobInput.name = `jobdesc-${i}`;
     jobInput.placeholder = 'Jobdesk Saat Project';
     jobDiv.appendChild(jobLabel);
     jobDiv.appendChild(jobInput);
