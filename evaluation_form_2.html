@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Training Form</title>
+	<title>Evaluation Form</title>
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -86,7 +86,6 @@
 			</div>
 			<!-- Create Form -->
 			<form id="form" name="evaluation-form" class="dynamicFieldsContainer">
-        <div class="step step-1 active">
 
           <!-- Details -->
           <div class="form-control">
@@ -121,42 +120,38 @@
             <input type="number" min="1" id="team-count" name="team-count" placeholder="Jumlah Tim Yang Bertugas" />
           </div>
 
-          <!-- Multi-line Text Input Control -->
-          <div class="button-loca">
-            <button class="next-btn">
-              <p style="color:#f1f1f1">Next</p>
-            </button>
-          </div>
-
-        </div>
-
-        <div class="" style="display: none">
           <!-- Details -->
           <div class="form-control">
-            <label for="employee-id" id="label-id">
+            <label for="employee-name" id="employee-name-label">
               Nama Anggota Tim
             </label>
 
-            <!-- Input Type Text -->
-            <input type="text" id="employee-id" placeholder="Nama Anggota Tim"/>
+            <select name="site" id="employee-name" name="employee-name">
+              <option value="Aditya Mahendra">Aditya Mahendra</option>
+              <option value="Dedy Aprianto">Dedy Aprianto</option>
+              <option value="Dino">Dino</option>
+              <option value="Faustina Marietta Loenardi">Faustina Marietta Loenardi</option>
+              <option value="Hony Seplaretia Stanny">Hony Seplaretia Stanny</option>
+              <option value="Mikhael Edward Thomas">Mikhael Edward Thomas</option>
+              <option value="Muhammad Nasrul Khabibi">Muhammad Nasrul Khabibi</option>
+              <option value="Mochammad Samsul Hadi">Mochammad Samsul Hadi</option>
+              <option value="Ratna Koes Afandi">Ratna Koes Afandi</option>
+              <option value="Salsabil Al Mufidah">Salsabil Al Mufidah</option>
+            </select>
           </div>
 
           <div class="form-control">
-            <label for="name" id="label-name">
+            <label for="unit-name" id="unit-name-label">
               Unit Kerja
             </label>
-
-            <!-- Input Type Email-->
-            <input type="text" id="name" placeholder="Unit Kerja"/>
+            <input type="text" id="unit-name" name="unit-name" placeholder="Unit Kerja"/>
           </div>
 
           <div class="form-control">
-            <label for="position" id="label-position">
+            <label for="jobdesc" id="jobdesc-label">
               Jobdesk Saat Project
             </label>
-
-            <!-- Input Type Text -->
-            <input type="text" id="position" placeholder="Jobdesk Saat Project" />
+            <input type="text" id="jobdesc" name="jobdesc" placeholder="Jobdesk Saat Project" />
           </div>
 
           <div class="form-control">
@@ -180,15 +175,15 @@
 
               <tr ng-repeat="item in items">
                 <th id="title"><label>Ketepatan Waktu</label></th>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                <td><label><input type="radio" name="ketepatan-waktu" value="1"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                <td><label><input type="radio" name="ketepatan-waktu" value="2"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                <td><label><input type="radio" name="ketepatan-waktu" value="3"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                <td><label><input type="radio" name="ketepatan-waktu" value="4"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                <td><label><input type="radio" name="ketepatan-waktu" value="5"
                       ng-model="model[item]" /> </label></td>
               </tr>
             </table>
@@ -196,12 +191,12 @@
 
 
           <div class="form-control">
-            <label for="apply" id="label-apply">
+            <label for="ket-ketepatan-waktu" id="ket-ketepatan-waktu-label">
               Keterangan Penilaian: Ketepatan Waktu
             </label>
 
             <!-- Input Type Text -->
-            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian ketepatan waktu" />
+            <input type="text" id="ket-ketepatan-waktu" name="ket-ketepatan-waktu" placeholder="Berikan alasan untuk penilaian ketepatan waktu" />
           </div>
 
           <div class="form-control">
@@ -225,15 +220,15 @@
 
               <tr ng-repeat="item in items">
                 <th id="title"><label>Komunikasi Internal</label></th>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                <td><label><input type="radio" name="komunikasi-internal" value="1"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                <td><label><input type="radio" name="komunikasi-internal" value="2"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                <td><label><input type="radio" name="komunikasi-internal" value="3"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                <td><label><input type="radio" name="komunikasi-internal" value="4"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                <td><label><input type="radio" name="komunikasi-internal" value="5"
                       ng-model="model[item]" /> </label></td>
               </tr>
             </table>
@@ -241,12 +236,12 @@
 
 
           <div class="form-control">
-            <label for="apply" id="label-apply">
+            <label for="ket-komunikasi-internal" id="ket-komunikasi-internal-label">
               Keterangan Penilaian: Komunikasi Internal
             </label>
 
             <!-- Input Type Text -->
-            <input type="text" id="apply" placeholder="Berikan alasan untuk penilaian komunikasi internal" />
+            <input type="text" id="ket-komunikasi-internal" name="ket-komunikasi-internal" placeholder="Berikan alasan untuk penilaian komunikasi internal" />
           </div>
 
           <div class="form-control">
@@ -270,15 +265,15 @@
 
               <tr ng-repeat="item in items">
                 <th id="title"><label>Kerjasama Tim</label></th>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="poor"
+                <td><label><input type="radio" name="kerjasama-tim" value="1"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="fair"
+                <td><label><input type="radio" name="kerjasama-tim" value="2"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="average"
+                <td><label><input type="radio" name="kerjasama-tim" value="3"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="very-good"
+                <td><label><input type="radio" name="kerjasama-tim" value="4"
                       ng-model="model[item]" /> </label></td>
-                <td><label><input type="radio" name="16_option-{{$index}}" value="excellent"
+                <td><label><input type="radio" name="kerjasama-tim" value="5"
                       ng-model="model[item]" /> </label></td>
               </tr>
             </table>
@@ -286,7 +281,7 @@
 
 
           <div class="form-control">
-            <label for="apply" id="label-apply">
+            <label for="ket-kerjasama-tim" id="ket-kerjasama-tim-label">
               Keterangan Penilaian: Kerjasama Tim
             </label>
 
@@ -476,7 +471,7 @@
             
 
           <!-- Multi-line Text Input Control -->
-          <!-- <div class="button-loca">
+          <div class="button-loca">
             <button class="previous-btn" type="cancel" value="cancel" style="background-color: #ffffff;">
               <p style="color:#1b1b1b">Cancel</p>
             </button>
@@ -484,8 +479,8 @@
             <button class="next-btn" type="submit" value="submit">
               <p style="color:#f1f1f1">Next</p>
             </button>
-          </div> -->
-        </div>
+          </div>
+
 			</form>
 		</div>
 	</div>

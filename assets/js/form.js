@@ -91,7 +91,18 @@ function generateFields() {
     nameLabel.innerHTML = 'Nama Anggota Tim ' + (i);
     nameInput.id = `employee-name-${i}`;
     nameInput.name = `employee-name-${i}`;
-    let nameOptions = ["Aditya Mahendra", "Faustina Marietta"];
+    let nameOptions = [
+      "Aditya Mahendra",
+      "Dedy Aprianto",
+      "Dino",
+      "Faustina Marietta Loenardi", 
+      "Hony Seplaretia Stanny",
+      "Mikhael Edward Thomas",
+      "Muhammad Nasrul Khabibi",
+      "Mochammad Samsul Hadi",
+      "Ratna Koes Afandi", 
+      "Salsabil Al Mufidah"
+    ];
     nameOptions.forEach(function(nameOption) {
         let optionElement = document.createElement("option");
         optionElement.setAttribute("value", nameOption);
