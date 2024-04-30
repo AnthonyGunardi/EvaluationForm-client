@@ -31,6 +31,8 @@ teamCount.addEventListener("input", () => {
 form.addEventListener("submit", (e) => {  
   e.preventDefault();  
   const submitButton = document.querySelector(".submit-btn");
+  const teamCount = document.getElementById('team-count').value;
+  submitButton.disabled = true
   const inputs = [];  
   form.querySelectorAll("input").forEach((input) => {
     if (input.type === "radio" && !input.checked) {
@@ -39,22 +41,81 @@ form.addEventListener("submit", (e) => {
     const { name, value } = input;  
     inputs.push({ name, value });  
   });  
-  console.log(inputs);
-  const formData = new FormData(form); 
+  console.log('ini input',inputs);
+  const formData = new FormData(form);
+  for (const data of formData.entries()) {
+    console.log('ini formData', data);
+  }
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzgA7RjxsC_6_VbywyedD0YW_vLlFi8MTvtZk5ighunv8xd1Rc5ri5K3xt8ZNLDVY9kfw/exec';
-  fetch(scriptURL, { method: 'POST', body: formData})
-  .then(response => {
-    console.log('Success send data to googlesheet', response);
-    for (const [key, value] of formData) {
-      console.log({key, value})
-    }
-    console.log(formData, '<-- ini form data')
-    form.reset();
-  })
-  .catch(error => {
-    console.error('Error!', error.message)
-  }) 
+  for (let i = 1; i <= teamCount; i++) {
+    const formDataForSheet = new FormData();
+    const employeeName = formData.get(`employee-name-${i}`);
+    const projectName = formData.get('project-name');
+    const picName = formData.get('pic-name');
+    const startDate = formData.get('start-date');
+    const teamCount = formData.get('team-count');
+    const unitName = formData.get(`unit-name-${i}`);
+    const jobdesc = formData.get(`jobdesc-${i}`);
+    const ketepatanWaktu = formData.get(`ketepatan-waktu-${i}`);
+    const ketKetepatanWaktu = formData.get(`ket-ketepatan-waktu-${i}`);
+    const komunikasiInternal = formData.get(`komunikasi-internal-${i}`);
+    const ketKomunikasiInternal = formData.get(`ket-komunikasi-internal-${i}`);
+    const kerjasamaTim = formData.get(`kerjasama-tim-${i}`);
+    const ketKerjasamaTim = formData.get(`ket-kerjasama-tim-${i}`);
+    const inisiatif = formData.get(`inisiatif-${i}`);
+    const ketInisiatif = formData.get(`ket-inisiatif-${i}`);
+    const kreativitas = formData.get(`kreativitas-${i}`);
+    const ketKreativitas = formData.get(`ket-kreativitas-${i}`);
+    const manajemenKonflik = formData.get(`manajemen-konflik-${i}`);
+    const ketManKonflik = formData.get(`ket-man-konflik-${i}`);
+    const pelayananPelanggan = formData.get(`pelayanan-pelanggan-${i}`);
+    const ketPelayananPelanggan = formData.get(`ket-pelayanan-pelanggan-${i}`);
+  
+    formDataForSheet.append('employee-name', employeeName);
+    formDataForSheet.append('project-name', projectName);
+    formDataForSheet.append('pic-name', picName);
+    formDataForSheet.append('start-date', startDate);
+    formDataForSheet.append('team-count', teamCount);
+    formDataForSheet.append('unit-name', unitName);
+    formDataForSheet.append('jobdesc', jobdesc);
+    formDataForSheet.append('ketepatan-waktu', ketepatanWaktu);
+    formDataForSheet.append('ket-ketepatan-waktu', ketKetepatanWaktu);
+    formDataForSheet.append('komunikasi-internal', komunikasiInternal);
+    formDataForSheet.append('ket-komunikasi-internal', ketKomunikasiInternal);
+    formDataForSheet.append('kerjasama-tim', kerjasamaTim);
+    formDataForSheet.append('ket-kerjasama-tim', ketKerjasamaTim);
+    formDataForSheet.append('inisiatif', inisiatif);
+    formDataForSheet.append('ket-inisiatif', ketInisiatif);
+    formDataForSheet.append('kreativitas', kreativitas);
+    formDataForSheet.append('ket-kreativitas', ketKreativitas);
+    formDataForSheet.append('manajemen-konflik', manajemenKonflik);
+    formDataForSheet.append('ket-man-konflik', ketManKonflik);
+    formDataForSheet.append('pelayanan-pelanggan', pelayananPelanggan);
+    formDataForSheet.append('ket-pelayanan-pelanggan', ketPelayananPelanggan);
+  
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzgA7RjxsC_6_VbywyedD0YW_vLlFi8MTvtZk5ighunv8xd1Rc5ri5K3xt8ZNLDVY9kfw/exec';
+    fetch(scriptURL, { method: 'POST', body: formDataForSheet })
+      .then(response => {
+        console.log('Success send data to googlesheet', response);
+        alert('Success send data to googlesheet.', response)
+        submitButton.disabled = false
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error!', error.message)
+        alert('Error send data to googlesheet!')
+        submitButton.disabled = false
+      });
+  }
+  // const scriptURL = 'https://script.google.com/macros/s/AKfycbzgA7RjxsC_6_VbywyedD0YW_vLlFi8MTvtZk5ighunv8xd1Rc5ri5K3xt8ZNLDVY9kfw/exec';
+  // fetch(scriptURL, { method: 'POST', body: formData})
+  // .then(response => {
+  //   console.log('Success send data to googlesheet', response);
+  //   form.reset();
+  // })
+  // .catch(error => {
+  //   console.error('Error!', error.message)
+  // }) 
 });
 
 function changeStep(btn) {
