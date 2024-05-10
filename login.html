@@ -46,12 +46,20 @@
   
           let username = document.getElementById('username').value;
           let password = document.getElementById('password').value;
-          let hardcodedUsername = "admin";
-          let hardcodedPassword = "123456";
-  
-          if (username === hardcodedUsername && password === hardcodedPassword) {
-              window.location.href = 'evaluation_form.html'; // Redirect to the dashboard page
-          } else {
+          let usernames = ["admin", "user1", "user2"]; // Add more usernames as needed
+          let passwords = ["123456", "password1", "password2"]; // Add more passwords as needed
+
+          let found = false;
+          for (let i = 0; i < usernames.length; i++) {
+              if (username === usernames[i] && password === passwords[i]) {
+                localStorage.setItem('username', username);
+                window.location.href = 'dashboard_supervisor.html';
+                found = true;
+                break; // Exit the loop if a match is found
+              }
+          }
+
+          if (!found) {
               alert('Invalid username or password. Please try again.');
           }
       });

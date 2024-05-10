@@ -17,16 +17,17 @@
     <section class="login-dark">
         <nav class="navbar navbar-dark navbar-expand-lg navigation-clean-search"
             style="background-color: white;color: black;">
-            <div class="container"><img src="assets/img/logo.jpeg" style="width: 100px;">
+            <div class="container"><img src="assets/img/logo.png" style="width: 100px;">
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="navbar-nav"></ul>
                 </div>
             </div>
         </nav>
-        <div class="overlay" style="position: absolute;width: 100%;height: 100%;background-color: rgba(191,0,3,0.4);">
+        <div class="overlay" style="position: absolute;width: 100%;height: 100%;">
         </div>
         <div class="logout_info">
             <h1 class="logout_text">You have successfully logged out.</h1>
+            <br>
             <a href="login.html">
                 <button class="btn btn-primary back_to_login_button" style="text-decoration: none;">Back to
                     Login</button>
@@ -34,6 +35,9 @@
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      localStorage.clear()
+    </script>
 </body>
 
 </html>

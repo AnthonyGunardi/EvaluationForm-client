@@ -47,6 +47,7 @@ form.addEventListener("submit", (e) => {
     console.log('ini formData', data);
   }
 
+  let counter = 0;
   for (let i = 1; i <= teamCount; i++) {
     const formDataForSheet = new FormData();
     const employeeName = formData.get(`employee-name-${i}`);
@@ -97,9 +98,13 @@ form.addEventListener("submit", (e) => {
     fetch(scriptURL, { method: 'POST', body: formDataForSheet })
       .then(response => {
         console.log('Success send data to googlesheet', response);
-        alert('Success send data to googlesheet.', response)
-        submitButton.disabled = false
-        form.reset();
+        counter++;
+        if (counter === teamCount) {
+          alert('Success send data to googlesheet.', response);
+          submitButton.disabled = false
+          form.reset();
+          window.location.href = 'dashboard_supervisor.html'
+        }
       })
       .catch(error => {
         console.error('Error!', error.message)
@@ -107,15 +112,6 @@ form.addEventListener("submit", (e) => {
         submitButton.disabled = false
       });
   }
-  // const scriptURL = 'https://script.google.com/macros/s/AKfycbzgA7RjxsC_6_VbywyedD0YW_vLlFi8MTvtZk5ighunv8xd1Rc5ri5K3xt8ZNLDVY9kfw/exec';
-  // fetch(scriptURL, { method: 'POST', body: formData})
-  // .then(response => {
-  //   console.log('Success send data to googlesheet', response);
-  //   form.reset();
-  // })
-  // .catch(error => {
-  //   console.error('Error!', error.message)
-  // }) 
 });
 
 function changeStep(btn) {
@@ -154,10 +150,12 @@ function generateFields() {
     nameInput.name = `employee-name-${i}`;
     let nameOptions = [
       "Aditya Mahendra",
+      "Christian",
       "Dedy Aprianto",
       "Dino",
       "Faustina Marietta Loenardi", 
       "Hony Seplaretia Stanny",
+      "Lucas",
       "Mikhael Edward Thomas",
       "Muhammad Nasrul Khabibi",
       "Mochammad Samsul Hadi",
@@ -816,15 +814,11 @@ function generateFields() {
       buttonDiv.classList.add("button-loca");
       const previousBtn = document.createElement('button');
       previousBtn.className = 'previous-btn';
-      // previousBtn.type = 'cancel';
-      // previousBtn.value = 'cancel';
       previousBtn.style.backgroundColor = '#ffffff';
       previousBtn.innerHTML = '<p style="color:#1b1b1b">Cancel</p>';
   
       const nextBtn = document.createElement('button');
       nextBtn.className = 'next-btn';
-      // nextBtn.type = 'submit';
-      // nextBtn.value = 'submit';
       nextBtn.innerHTML = '<p style="color:#f1f1f1">Next</p>';
   
       buttonDiv.appendChild(previousBtn);

@@ -90,7 +90,7 @@ button and Checkbox */
 button {
     background-color: #BF171D;
     border: 1px solid #777;
-    border-radius: 2px;
+    border-radius: 10px;
     font-family: inherit;
     font-size: 21px;
     width: 20%;
@@ -124,6 +124,10 @@ button-bar {
 button-bar:hover {
     background-color: #ccc;
     color: #000
+}
+
+button p {
+  margin-bottom: 0.5rem !important;
 }
 
 td {

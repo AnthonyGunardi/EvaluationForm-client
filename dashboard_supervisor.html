@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/login_form.css">
   <link rel="stylesheet" href="assets/css/dashboard.css">
-  <link rel="stylesheet" href="assets/css/training_form.css">
+  <link rel="stylesheet" href="assets/css/evaluation_form.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body style="overflow-y: hidden;">
   <nav class="navbar navbar-expand-lg navigation-clean-search">
     <div class="container">
-      <img class="logo" src="assets/img/logo.jpeg">
+      <img class="logo" src="assets/img/logo.png">
       <div class="collapse navbar-collapse" id="navcol-1">
         <ul class="navbar-nav"></ul>
       </div>
@@ -34,40 +34,19 @@
             <i class="fa fa-th-large fa-fw" style="margin-right:16px!important"></i>Dashboard
           </button-bar>
         </a>
-        <a href="training_history_supervisor.html">
+        <a href="evaluation_form.html">
           <button-bar>
-            <i class="fa fa-history fa-fw" style="margin-right:16px!important"></i>Evaluation History
-          </button-bar>
-        </a>
-        <a href="training_form_supervisor.html">
-          <button-bar>
-            <i class="fa fa-plus fa-fw" style="margin-right:16px!important"></i>Add New Evaluation
+            <i class="fa fa-plus fa-fw" style="margin-right:16px!important"></i>Add Evaluation
           </button-bar>
         </a>
         <a href="see_employee_records.html">
           <button-bar>
-            <i class="fa fa-address-card-o fa-fw" style="margin-right:16px!important"></i>Employee Records
-          </button-bar>
-        </a>
-        <a href="request_new_records.html">
-          <button-bar>
-            <i class="fa fa-bell fa-fw" style="margin-right:16px!important"></i>Request New Records
-          </button-bar>
-        </a>
-        <a href="my_profile_supervisor.html">
-          <button-bar>
-            <i class="fa fa-user-plus fa-fw" style="margin-right:16px!important"></i>My Profile
-          </button-bar>
-        </a>
-        <a href="account_settings_supervisor.html">
-          <button-bar>
-            <i class="fa fa-cog fa-fw" style="margin-right:16px!important"></i>Account Settings
+            <i class="fa fa-address-card-o fa-fw" style="margin-right:16px!important"></i>Evaluation Records
           </button-bar>
         </a>
         <a href="logout.html">
           <button-bar>
-            <i class="fa fa-sign-out fa-fw" style="margin-right:16px!important"></i>Log
-            Out
+            <i class="fa fa-sign-out fa-fw" style="margin-right:16px!important"></i>Log Out
           </button-bar>
         </a>
       </div>
@@ -87,72 +66,55 @@
           style="margin:20px 20px; font-size:36px!important;"><i class="fa fa-bars"></i></span>
 
         <div style="padding:0.01em 16px;margin-top: 24px">
-          <h1><b>Welcome, </b> <b style="color:red;">FirstName LastName (ID)</b></h1>
-          <h4><b>Make today meaningful.</b></h4>
+          <h1><b>Welcome, </b> <b id="username" style="color:#2980ef;"></b></h1>
         </div>
       </header>
 
       <!-- First Photo Grid-->
       <div style="padding: 8px">
 
-        <a href="training_history_supervisor.html">
-          <container>
-            <div class="box-content">
-              <i class="fa fa-history" style="font-size:60px;margin:8px 0px"></i>
-              <p><b>Training History</b></p>
-            </div>
-          </container>
-        </a>
-        <a href="my_profile_supervisor.html">
-          <container>
-            <div class="box-content">
-              <i class="fa fa-user" style="font-size:60px;margin:8px 0px"></i>
-              <p><b>My Profile</b></p>
-            </div>
-          </container>
-        </a>
-        <a href="training_form_supervisor.html">
+        <a href="evaluation_form.html">
           <container>
             <div class="box-content">
               <i class="fa fa-plus" style="font-size:60px;margin:8px 0px"></i>
-              <p><b>Add Training</b></p>
+              <p><b>Add Evaluation</b></p>
             </div>
           </container>
-      </div>
-      </a>
-      <!-- Second Photo Grid-->
+        </a>
 
-      <div style="padding: 8px">
-        <a href="see_employee_records.html">
+        <a href="https://docs.google.com/spreadsheets/d/1uIfUUq2nVUZ-Vy3RA-lIg8ER8qub5Xm1QdVOClQu2Z0/edit?usp=sharing" target=”_blank”>
           <container>
             <div class="box-content">
               <i class="fa fa-address-card-o" style="font-size:60px;margin:8px 0px"></i>
-              <p><b>See Employee Records</b></p>
+              <p><b>See Evaluation Records</b></p>
             </div>
           </container>
         </a>
-        <a href="request_new_records.html">
+
+        <a href="logout.html">
           <container>
             <div class="box-content">
-              <i class="fa fa-bell" style="font-size:60px;margin:8px 0px"></i>
-              <p><b>Request New Records</b></p>
+              <i class="fa fa-sign-out fa-fw" style="font-size:60px;margin:8px 0px"></i>
+              <p><b>Log Out</b></p>
             </div>
           </container>
         </a>
-        <a href="account_settings_supervisor.html">
-          <container>
-            <div class="box-content">
-              <i class="fa fa-cog" style="font-size:60px;margin:8px 0px"></i>
-              <p><b>Account Settings</b></p>
-            </div>
-          </container>
-        </a>
+      </div>
+
+      <!-- Second Photo Grid-->
+
+      <div style="padding: 8px">
+
       </div>
 
       <!-- End page content -->
     </div>
   </div>
   <script src="assets/js/sidebar.js"></script>
+  <script>
+    const username = localStorage.getItem('username');
+    document.getElementById('username').textContent = username;
+  </script>
 
 </body>
 
