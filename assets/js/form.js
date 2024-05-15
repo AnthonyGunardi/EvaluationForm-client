@@ -150,12 +150,12 @@ function generateFields() {
     nameInput.name = `employee-name-${i}`;
     let nameOptions = [
       "Aditya Mahendra",
-      "Christian",
+      "Acariya Christian",
       "Dedy Aprianto",
       "Dino",
       "Faustina Marietta Loenardi", 
       "Hony Seplaretia Stanny",
-      "Lucas",
+      "Lucas Xander Paul Anakotta",
       "Mikhael Edward Thomas",
       "Muhammad Nasrul Khabibi",
       "Mochammad Samsul Hadi",
